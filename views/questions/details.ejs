@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+
+<h1><%= question.text %></h1>
+<hr>
+
+<% 
+// Định dạng chuỗi hiển thị
+let optionsDisplay = question.options.map((opt, index) => {
+    if (index === question.correctAnswerIndex) {
+        return `${opt} (Correct)`;
+    }
+    return opt;
+}).join(', ');
+%>
+
+<div class="mb-3">
+    <input type="text" class="form-control" value="<%= optionsDisplay %>" readonly disabled>
+</div>
+
+<a href="/questions/<%= question._id %>/edit" class="btn btn-warning">Edit Question</a>
+<a href="/questions" class="btn btn-secondary">Back to List</a>
+
+<%- include('../partials/footer') %>

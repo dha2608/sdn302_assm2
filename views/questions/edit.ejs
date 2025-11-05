@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+<h1>Edit Question</h1>
+<hr>
+
+<form method="POST" action="/questions/<%= question._id %>?_method=PUT">
+    <div class="mb-3">
+        <label for="text" class="form-label">Question Text:</label>
+        <input type="text" class="form-control" id="text" name="text" value="<%= question.text %>" required>
+    </div>
+    
+    <div class="mb-3">
+        <label for="options" class="form-label">Options (comma-separated):</label>
+        <input type="text" class="form-control" id="options" name="options" value="<%= question.optionsString %>" required>
+    </div>
+    
+    <div class="mb-3">
+        <label for="correctAnswerIndex" class="form-label">Correct Answer Index:</label>
+        <input type="number" class="form-control" id="correctAnswerIndex" name="correctAnswerIndex" value="<%= question.correctAnswerIndex %>" required>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a href="/questions/<%= question._id %>" class="btn btn-secondary">Cancel</a>
+</form>
+
+<%- include('../partials/footer') %>

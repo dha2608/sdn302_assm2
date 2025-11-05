@@ -1,18 +1,18 @@
 <%- include('../partials/header') %>
 
 <div class="d-flex justify-content-between align-items-center mb-3">
-    <h1>Quizzes</h1>
-    <a href="/quizzes/new" class="btn btn-primary">Create New Quiz</a>
+    <h1>Questions</h1>
+    <a href="/questions/new" class="btn btn-primary">Create New Question</a>
 </div>
 
 <ul class="list-group">
-    <% quizzes.forEach(quiz => { %>
+    <% questions.forEach(question => { %>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-            <a href="/quizzes/<%= quiz._id %>">
-                <%= quiz.title %>
+            <a href="/questions/<%= question._id %>">
+                <%= question.text %>
             </a>
             
-            <form method="POST" action="/quizzes/<%= quiz._id %>?_method=DELETE" class="d-inline">
+            <form method="POST" action="/questions/<%= question._id %>?_method=DELETE" class="d-inline">
                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
             </form>
         </li>

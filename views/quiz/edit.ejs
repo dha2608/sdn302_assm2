@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+
+<h1>Edit Quiz</h1>
+<hr>
+
+<form method="POST" action="/quizzes/<%= quiz._id %>?_method=PUT">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" class="form-control" id="title" name="title" value="<%= quiz.title %>" required>
+    </div>
+    
+    <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <input type="text" class="form-control" id="description" name="description" value="<%= quiz.description %>">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a href="/quizzes/<%= quiz._id %>" class="btn btn-secondary">Cancel</a>
+</form>
+
+<%- include('../partials/footer') %>
